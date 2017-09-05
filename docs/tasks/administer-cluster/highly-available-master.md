@@ -150,7 +150,7 @@ The following sample commands demonstrate this process:
 ## 处理 master 副本失败
 
 如果 HA 集群中某个 master 副本失败了，最佳的实践是从集群中删除该副本，并在同一个 zone 中新增一个副本。
-下面的示例名命令演示了这个流程：
+下面的示例命令演示了这个流程：
 
 <!--
 1. Remove the broken replica:
@@ -200,7 +200,7 @@ This operation may be sped up by migrating etcd data directory, as described [he
 因此就 HA 而言，两副本集群不如单副本集群。
 
 * 当添加一个 master 副本时，集群状态（etcd）被拷贝到一个新的实例上。
-如果集群很大，它可能需要花费很长时间去复制它的状态。
+如果集群很大，它可能需要花费很长时间去复制自己的状态。
 通过迁移 etcd 数据目录，可能会加快这个操作的速度，查看 [这里](https://coreos.com/etcd/docs/latest/admin_guide.html#member-migration) 给出的说明（将来我们可能考虑增加对 etcd 数据目录迁移的支持）。
 
 <!--
@@ -291,7 +291,7 @@ to access a replica via its ephemeral public IP, you must skip TLS verification.
 
 ### Master 证书
 
-Kubernetes 为外部公共 IP 和本地每个副本的 IP生成 Master TLS 证书。
+Kubernetes 为外部公共 IP 和本地每个副本的 IP 生成 Master TLS 证书。
 不会为副本的临时公共 IP 生成证书。
 基于临时公共 IP 访问一个副本，必须要跳过 TLS 验证。
 
