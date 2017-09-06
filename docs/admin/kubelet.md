@@ -35,7 +35,7 @@ HTTP server: The kubelet can also listen for HTTP and respond to a simple API
 
 kubelet 是运行在每个节点上的主要的“节点代理”，它按照 PodSpec 中的描述工作。 PodSpec 是用来描述一个 pod 的 YAML 或者 JSON 对象。kubelet 通过各种机制（主要通过 apiserver ）获取一组 PodSpec 并保证在这些 PodSpec 中描述的容器健康运行。kubelet 不管理不是由 Kubernetes 创建的容器。
 
-除了来自 apiserver 的 PodSpec ，还有 3 种方式可以将容器清单提供给 Kubelet 。
+除了来自 apiserver 的 PodSpec ，还有 3 种方式可以将容器清单提供给 kubelet 。
 
 文件：在命令行指定的一个路径，在这个路径下的文件将被周期性的监视更新，默认监视周期是 20 秒并可以通过参数配置。
 
@@ -194,12 +194,12 @@ TaintBasedEvictions=true|false (ALPHA - default=false)
 ```
 -->
 ```
-      --address ip                                              Kubelet 服务监听的IP地址（设置为 0.0.0.0 监听所有地址）（默认 0.0.0.0 ）
+      --address ip                                              kubelet 服务监听的IP地址（设置为 0.0.0.0 监听所有地址）（默认 0.0.0.0 ）
       --allow-privileged                                        如果为 true ，将允许容器请求特权模式
       --anonymous-auth                                          允许匿名请求到 Kubelet 服务。未被另一个身份验证方法拒绝的请求被视为匿名请求。匿名请求包含系统的用户名: anonymous ，以及系统的组名: unauthenticated 。（默认 true ）
       --authentication-token-webhook                            使用 TokenReview API 来确定不记名令牌的身份验证
       --authentication-token-webhook-cache-ttl duration         webhook 令牌身份验证器缓存响应时间。（默认2m0s）
-      --authorization-mode string                               Kubelet 服务的授权模式。有效的选项是 AlwaysAllow 或 Webhook 。Webhook 模式使用 SubjectAccessReview API 来确定授权。(默认“AlwaysAllow”)
+      --authorization-mode string                               kubelet 服务的授权模式。有效的选项是 AlwaysAllow 或 Webhook 。Webhook 模式使用 SubjectAccessReview API 来确定授权。(默认“AlwaysAllow”)
       --authorization-webhook-cache-authorized-ttl duration     来自 webhook 的已认证响应缓存时间（默认 5m0s）
       --authorization-webhook-cache-unauthorized-ttl duration   来自 webhook 的未认证响应缓存时间（默认 30s）
       --azure-container-registry-config string                  Azure 容器注册表配置信息路径
@@ -268,9 +268,9 @@ TaintBasedEvictions=true|false (ALPHA - default=false)
       --hairpin-mode string                                     kubelet 如何设置 hairpin NAT（“发夹”转换）。 这使得当服务可以尝试访问自己时服务端点可以自动恢复，合法值由 "promiscuous-bridge", "hairpin-veth" 和 "none". (默认 "promiscuous-bridge")
       --healthz-bind-address ip                                 健康检查服务的IP地址。（设置 0.0.0.0 使用所有地址）（默认 127.0.0.1 ）
       --healthz-port int32                                      本地健康检查服务的端口号（默认 10248 ）
-      --host-ipc-sources stringSlice                            Kubelet 允许 pod 使用主机 ipc 名称空间列表，逗号分隔。（默认[*]）
-      --host-network-sources stringSlice                        Kubelet 允许 pod 使用主机网络列表，逗号分隔。（默认[*]）
-      --host-pid-sources stringSlice                            Kubelet 允许 pod 使用主机 pid 名称空间列表，逗号分隔。（默认[*]）
+      --host-ipc-sources stringSlice                            kubelet 允许 pod 使用主机 ipc 名称空间列表，逗号分隔。（默认[*]）
+      --host-network-sources stringSlice                        kubelet 允许 pod 使用主机网络列表，逗号分隔。（默认[*]）
+      --host-pid-sources stringSlice                            kubelet 允许 pod 使用主机 pid 名称空间列表，逗号分隔。（默认[*]）
       --hostname-override string                                如果不是空，将使用该字符作为 hostname 而不是真实的 hostname 。
       --http-check-frequency duration                           通过 http 检查新数据的周期（默认 20s）
       --image-gc-high-threshold int32                           镜像占用磁盘比率最大值，超过此值将执行镜像垃圾回收。（默认 85）
