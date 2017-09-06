@@ -325,7 +325,7 @@ TaintBasedEvictions=true|false (ALPHA - default=false)
       --serialize-image-pulls                                   一次拉取一个镜像。建议在安装 docker 版本低于 1.9 的节点或一个Aufs存储后端不去修改这个默认值。查看问题 #10959 获取更多细节。 (默认 true)
       --streaming-connection-idle-timeout duration              在连接自动关闭之前，流连接的最大空闲时间，0 表示永不超时。例如： '5m' (默认 4h0m0s)
       --sync-frequency duration                                 同步运行容器和配置之间的最大时间间隔 (默认 1m0s)
-      --system-cgroups /                                        可选的cgroups的绝对名称，用于将未包含在cgroup内的所有非内核进程放置在根目录 / 中，回滚这个标识需要重启。
+      --system-cgroups /                                        可选的 cgroups 的绝对名称，用于将未包含在 cgroup 内的所有非内核进程放置在根目录 / 中，回滚这个标识需要重启。
       --system-reserved mapStringString                         一个 资源名称=量 的集合(例如 cpu=200m,memory=500Mi ) 用来描述为非 kubernetes 组件保留的资源。 目前仅支持 cpu 和内存。 查看 http://kubernetes.io/docs/user-guide/compute-resources 或许更多细节。 [默认 none]
       --system-reserved-cgroup string                           顶级 cgroup 的绝对名称，用于管理计算资源的非 kubernetes 组件，这些组件通过'--system-reserved'标识保留系统资源。除了'/system-reserved'。 [默认'']
       --tls-cert-file string                                    包含用于 https 服务的 x509 证书的文件 (中间证书，如果有，在服务器认证后使用)。如果没有提供 --tls-cert-file 和 --tls-private-key-file ， 将会生产一个自签名的证书及密钥给公开地址使用，并将其保存在 --cert-dir 指定的目录。
