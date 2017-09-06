@@ -50,11 +50,20 @@ kubelet
 ### Options
 -->
 ### 选项
-<!--
 ```
+<!--
       --address ip                                              The IP address for the Kubelet to serve on (set to 0.0.0.0 for all interfaces) (default 0.0.0.0)
+-->
+      --address ip                                              Kubelet 服务的IP地址（设置为 0.0.0.0 监听所有地址）（默认 0.0.0.0）
+<!--      
       --allow-privileged                                        If true, allow containers to request privileged mode.
+-->
+      --allow-privileged                                        如果为 true ，将允许容器请求特权模式。
+<!--            
       --anonymous-auth                                          Enables anonymous requests to the Kubelet server. Requests that are not rejected by another authentication method are treated as anonymous requests. Anonymous requests have a username of system:anonymous, and a group name of system:unauthenticated. (default true)
+-->     
+      --anonymous-auth                                          允许匿名请求到 Kubelet 服务器。未被另一个身份验证方法拒绝的请求被视为匿名请求。匿名请求包含系统的用户名: anonymous ，以及系统的组名: unauthenticated 。（默认 true）
+ 
       --authentication-token-webhook                            Use the TokenReview API to determine authentication for bearer tokens.
       --authentication-token-webhook-cache-ttl duration         The duration to cache responses from the webhook token authenticator. (default 2m0s)
       --authorization-mode string                               Authorization mode for Kubelet server. Valid options are AlwaysAllow or Webhook. Webhook mode uses the SubjectAccessReview API to determine authorization. (default "AlwaysAllow")
@@ -192,10 +201,7 @@ TaintBasedEvictions=true|false (ALPHA - default=false)
       --volume-plugin-dir string                                <Warning: Alpha feature> The full path of the directory in which to search for additional third party volume plugins (default "/usr/libexec/kubernetes/kubelet-plugins/volume/exec/")
       --volume-stats-agg-period duration                        Specifies interval for kubelet to calculate and cache the volume disk usage for all pods and volumes.  To disable volume calculations, set to 0. (default 1m0s)
 ```
--->
 ```
-      --address ip                                              Kubelet服务监听的IP地址（默认0.0.0.0，监听所有IP）
-      --allow-privileged                                        设置true将允许容器请求特权模式
       --anonymous-auth                                          允许匿名请求到Kubelet服务器。未被另一个身份验证方法拒绝的请求被视为匿名请求。匿名请求包含系统的用户名:anonymous，以及系统的组名:unauthenticated。（默认 true）
       --authentication-token-webhook                            使用TokenReview API来确定不记名令牌的身份验证
       --authentication-token-webhook-cache-ttl duration         webhook令牌身份验证器缓存响应时间。（默认2m0s）
