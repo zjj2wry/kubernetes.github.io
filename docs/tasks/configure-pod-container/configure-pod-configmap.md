@@ -639,7 +639,7 @@ When a ConfigMap already being consumed in a volume is updated, projected keys a
 
 {% capture whatsnext %}
 * 想了解更多 [ConfigMaps](/docs/tasks/configure-pod-container/configmap/).
-* 想研究一个现实生活的案例 [Configuring Redis using a ConfigMap](/docs/tutorials/configuration/configure-redis-using-configmap/).
+* 想研究一个现实生活的案例 [使用ConfigMap配置redis](/docs/tutorials/configuration/configure-redis-using-configmap/).
 
 {% endcapture %}
 
