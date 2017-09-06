@@ -29,16 +29,15 @@ is checked every 20 seconds (also configurable with a flag).
 
 HTTP server: The kubelet can also listen for HTTP and respond to a simple API
 (underspec'd currently) to submit a new manifest.-->
-kubelet是运行在每个节点上的主要的“节点代理”。kubelet按照一个PodSpec工作。PodSpec是用来描述一个容器组的YAML或者JSON对象。
-kubelet从各种机制（主要apiserver）获取一组PodSpec并保证在这些PodSpecs中描述的容器健康运行。kubelet不管理不是由Kubernetes创建的容器。
+kubelet 是运行在每个节点上的主要的“节点代理”，它按照 PodSpec 中的描述工作。 PodSpec 是用来描述一个 pod 的 YAML 或者 JSON 对象。kubelet 通过各种机制（主要通过 apiserver ）获取一组 PodSpec 并保证在这些 PodSpec 中描述的容器健康运行。kubelet 不管理不是由 Kubernetes 创建的容器。
 
-除了来自apiserver的PodSpec，还有三种方式可以将容器清单提供给Kubelet。
+除了来自 apiserver 的 PodSpec ，还有 3 种方式可以将容器清单提供给 Kubelet 。
 
-文件：路径在命令行上作为一个标识，在这个路径下的文件将被定期监视更新，监视周期默认是20秒并可以配置。
+文件：在命令行指定的一个路径，在这个路径下的文件将被周期性的监视更新，默认监视周期是 20 秒并可以通过参数配置。
 
-HTTP端点：HTTP端点在命令行上作为一个参数，该端点每20秒被检查一次并且检查周期可以配置。
+HTTP端点：在命令行指定的一个HTTP端点，该端点每 20 秒被检查一次并且可以通过参数配置检查周期。
 
-HTTP服务：kubelet还可以监听HTTP服务并响应一个简单的API来提交一个新的清单。
+HTTP服务：kubelet 还可以监听 HTTP 服务并响应一个简单的 API 来创建一个新的清单。
 
 ```
 kubelet
