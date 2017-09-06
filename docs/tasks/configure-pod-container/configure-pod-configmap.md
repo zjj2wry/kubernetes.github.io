@@ -16,11 +16,11 @@ This page provides a series of usage examples demonstrating how to configure Pod
 -->
 
 ---
-标题: 在Pod里使用ConfigMap数据
+标题: 在 Pod 里使用 ConfigMap 数据
 ---
 
 {% capture overview %}
-这篇教程提供了一系列的例子，展示如何配置Pod来使用ConfigMaps里面的数据。
+这篇教程提供了一系列的例子，展示如何配置 Pod 来使用 ConfigMaps 里面的数据。
 {% endcapture %}
 
 {% capture prerequisites %}
@@ -72,17 +72,17 @@ This page provides a series of usage examples demonstrating how to configure Pod
 1. Save the changes to the Pod specification. Now, the Pod's output includes `SPECIAL_LEVEL_KEY=very`. 
 -->
 
-## 使用ConfigMap数据来定义Pod环境变量
+## 使用 ConfigMap 数据来定义 Pod 环境变量
 
-### 从单个ConfigMap提取数据定义Pod的环境变量
+### 从单个 ConfigMap 提取数据定义 Pod 的环境变量
 
-1. 在ConfigMap里将环境变量定义为键值对：
+1. 在 ConfigMap 里将环境变量定义为键值对：
 
    ```shell
    kubectl create configmap special-config --from-literal=special.how=very 
    ```
 
-1. 将ConfigMap里的`special.how`值赋给Pod的环境变量`SPECIAL_LEVEL_KEY`.  
+1. 将 ConfigMap 里的`special.how`值赋给 Pod 的环境变量`SPECIAL_LEVEL_KEY`.  
 
    ```shell
    kubectl edit pod dapi-test-pod
@@ -110,7 +110,7 @@ This page provides a series of usage examples demonstrating how to configure Pod
      restartPolicy: Never
    ```
 
-1. 将修改保存到Pod的配置里，现在Pod的输出会包含`SPECIAL_LEVEL_KEY=very`这么一行. 
+1. 将修改保存到 Pod 的配置里，现在 Pod 的输出会包含`SPECIAL_LEVEL_KEY=very`这么一行. 
 
 <!--
 ### Define Pod environment variables with data from multiple ConfigMaps
@@ -166,9 +166,9 @@ This page provides a series of usage examples demonstrating how to configure Pod
 1. Save the changes to the Pod specification. Now, the Pod's output includes `SPECIAL_LEVEL_KEY=very` and `LOG_LEVEL=info`. 
 -->
 
-### 从多个ConfigMap读取数据来定义Pod环境
+### 从多个 ConfigMap 读取数据来定义 Pod 环境
 
-1. 跟前面的例子一样，我们先创建ConfigMap。
+1. 跟前面的例子一样，我们先创建 ConfigMap。
 
    ```yaml
    apiVersion: v1
@@ -190,7 +190,7 @@ This page provides a series of usage examples demonstrating how to configure Pod
      log_level: INFO
    ``` 
 
-1. 在Pod配置里定义环境变量.
+1. 在 Pod 配置里定义环境变量.
 
    ```yaml
    apiVersion: v1
@@ -216,7 +216,7 @@ This page provides a series of usage examples demonstrating how to configure Pod
      restartPolicy: Never
    ```
  
-1. 保存Pod的配置，现在Pod的输出会包括`SPECIAL_LEVEL_KEY=very`和`LOG_LEVEL=info`.
+1. 保存 Pod 的配置，现在 Pod 的输出会包括`SPECIAL_LEVEL_KEY=very`和`LOG_LEVEL=info`.
 
 <!--
 ## Configure all key-value pairs in a ConfigMap as Pod environment variables 
@@ -257,11 +257,11 @@ Note: This functionality is available to users running Kubernetes v1.6 and later
 1. Save the changes to the Pod specification. Now, the Pod's output includes `SPECIAL_LEVEL=very` and `SPECIAL_TYPE=charm`. 
 -->
 
-## 将所有ConfigMap的键值对都设置为Pod的环境变量
+## 将所有 ConfigMap 的键值对都设置为Pod的环境变量
 
-注意: 这个功能只适用于使用Kubernetes 1.6及以上版本的环境.
+注意: 这个功能只适用于使用 Kubernetes 1.6及以上版本的环境.
 
-1. 创建一个包含多个键值对的ConfigMap。
+1. 创建一个包含多个键值对的 ConfigMap。
 
    ```yaml
    apiVersion: v1
@@ -274,7 +274,7 @@ Note: This functionality is available to users running Kubernetes v1.6 and later
      SPECIAL_TYPE: charm
    ```
 
-1. 使用`env-from`来读取ConfigMap的所有数据作为Pod的环境变量。ConfigMap的键名作为环境变量的变量名。
+1. 使用`env-from`来读取 ConfigMap 的所有数据作为Pod的环境变量。ConfigMap 的键名作为环境变量的变量名。
    
    ```yaml
    apiVersion: v1
@@ -292,7 +292,7 @@ Note: This functionality is available to users running Kubernetes v1.6 and later
      restartPolicy: Never
    ```
 
-1. 保存Pod的配置，现在Pod的输出会包含`SPECIAL_LEVEL=very`和`SPECIAL_TYPE=charm`.
+1. 保存 Pod 的配置，现在 Pod 的输出会包含`SPECIAL_LEVEL=very`和`SPECIAL_TYPE=charm`.
 
 <!--
 ## Use ConfigMap-defined environment variables in Pod commands  
@@ -334,13 +334,13 @@ very charm
 ```
 -->
 
-## 在Pod命令里使用ConfigMap定义的环境变量
+## 在 Pod 命令里使用 ConfigMap 定义的环境变量
 
-我们可以利用`$(VAR_NAME)`这个Kubernetes替换变量，在Pod的配置文件的`command`段使用ConfigMap定义的环境变量。
+我们可以利用`$(VAR_NAME)`这个 Kubernetes 替换变量，在 Pod 的配置文件的`command`段使用 ConfigMap 定义的环境变量。
 
 例子如下:
 
-下面的Pod配置
+下面的 Pod 配置
 
 ```yaml
 apiVersion: v1
@@ -366,7 +366,7 @@ spec:
   restartPolicy: Never
 ```
 
-在容器`test-container`里产生这样的输出：
+在容器 `test-container` 里产生这样的输出：
 
 ```shell
 very charm
@@ -391,12 +391,12 @@ data:
 ```
 -->
 
-## Add ConfigMap data to a Volume 
+## 添加ConfigMap数据到卷
 
-就像这篇文章[如何使用ConfigMap配置容器](/docs/tasks/configure-pod-container/configmap.html)介绍的,当你使用``--from-file``创建ConfigMap时，
-文件名将作为键名保存在ConfigMap的`data`段，文件的内容变成键值。
+就像这篇文章[如何使用 ConfigMap 配置容器](/docs/tasks/configure-pod-container/configmap.html)介绍的,当您使用 ``--from-file`` 创建 ConfigMap 时，
+文件名将作为键名保存在 ConfigMap 的 `data` 段，文件的内容变成键值。
 
-下面的例子展示了一个名为special-config的ConfigMap的配置：
+下面的例子展示了一个名为 special-config 的 ConfigMap 的配置：
 
 ```yaml
 apiVersion: v1
@@ -446,11 +446,11 @@ special.type
 ```
 -->
 
-### 从ConfigMap里的数据生成一个卷
+### 从 ConfigMap 里的数据生成一个卷
 
-在Pod的配置文件里的`volumes`段添加ConfigMap的名字。
-这会将ConfigMap数据添加到`volumeMounts.mountPath`指定的目录里面（在这个例子里是`/etc/config`）。
-`command`段引用了ConfigMap里的`special.level`.
+在 Pod 的配置文件里的 `volumes` 段添加 ConfigMap 的名字。
+这会将 ConfigMap 数据添加到 `volumeMounts.mountPath` 指定的目录里面（在这个例子里是 `/etc/config`）。
+`command` 段引用了 ConfigMap 里的 `special.level`.
 
 ```yaml
 apiVersion: v1
@@ -474,7 +474,7 @@ spec:
   restartPolicy: Never
 ```
 
-Pod运行起来后, 执行这个命令(`"ls /etc/config/"`)将产生如下的输出：
+Pod 运行起来后, 执行这个命令 (`"ls /etc/config/"`) 将产生如下的输出：
 
 ```shell
 special.level
@@ -517,10 +517,10 @@ very
 ```
 -->
 
-### 添加ConfigMap数据到卷里指定路径
+### 添加 ConfigMap 数据到卷里指定路径
 
-使用`path`变量定义ConfigMap数据的文件路径。
-在我们这个例子里，`special.level` 将会被挂载在`config-volume`的文件`/etc/config/keys`下.
+使用 `path` 变量定义 ConfigMap 数据的文件路径。
+在我们这个例子里，`special.level` 将会被挂载在 `config-volume` 的文件 `/etc/config/keys` 下.
 
 ```yaml
 apiVersion: v1
@@ -545,7 +545,7 @@ spec:
   restartPolicy: Never
 ```
 
-Pod运行起来后，执行命令(`"cat /etc/config/keys"`)将产生下面的结果：
+Pod 运行起来后，执行命令(`"cat /etc/config/keys"`)将产生下面的结果：
 
 ```shell
 very
@@ -566,15 +566,15 @@ When a ConfigMap already being consumed in a volume is updated, projected keys a
 {% capture discussion %}
 -->
 
-### 绑定Key到指定的路径和文件权限
+### 绑定 Key 到指定的路径和文件权限
 
-我们可以基于文件来绑定Key到指定的路径和文件权限，详情请查阅[Secrets](/docs/concepts/configuration/secret#using-secrets-as-files-from-a-pod)
+我们可以基于文件来绑定 Key 到指定的路径和文件权限，详情请查阅 [Secrets](/docs/concepts/configuration/secret#using-secrets-as-files-from-a-pod)
 这篇文章解释了这个用法。
 
-### 自动更新挂载的ConfigMap
+### 自动更新挂载的 ConfigMap
 
-当一个已经被使用的ConfigMap发生了更新时，对应的Key也会被更新。Kubelet会周期性的检查挂载的ConfigMap是否是最新的。
-然而，它会使用本地基于ttl的cache来获取ConfigMap的当前内容。因此，从ConfigMap更新到Pod里的新Key更新这个时间，等于Kubelet的同步周期加ConfigMap cache的tll。
+当一个已经被使用的 ConfigMap 发生了更新时，对应的 Key 也会被更新。Kubelet 会周期性的检查挂载的 ConfigMap 是否是最新的。
+然而，它会使用本地基于 ttl 的 cache 来获取 ConfigMap 的当前内容。因此，从 ConfigMap 更新到 Pod 里的新 Key 更新这个时间，等于 Kubelet 的同步周期加 ConfigMap cache 的 tll。
 
 {% endcapture %}
 
@@ -596,15 +596,15 @@ When a ConfigMap already being consumed in a volume is updated, projected keys a
    ```
 -->
 
-## 了解ConfigMaps和Pods
+## 了解 ConfigMaps 和 Pods
 
 ### 限制
 
-1. 我们必须在Pod使用ConfigMap之前，创建好ConfigMap（除非你把ConfigMap标志成"optional"）。如果你引用了一个不存在的ConfigMap，
-那这个Pod是无法启动的。就像引用了不存在的Key会导致Pod无法启动一样。
+1. 我们必须在 Pod 使用 ConfigMap 之前，创建好 ConfigMap（除非您把 ConfigMap 标志成"optional"）。如果您引用了一个不存在的 ConfigMap，
+那这个Pod是无法启动的。就像引用了不存在的 Key 会导致 Pod 无法启动一样。
 
-1. 如果你使用`envFrom`来从ConfigMap定义环境变量，无效的Key会被忽略。Pod可以启动，但是无效的名字将会被记录在事件日志里(`InvalidVariableNames`). 
-日志消息会列出来每个被忽略的Key，比如：
+1. 如果您使用`envFrom`来从 ConfigMap 定义环境变量，无效的 Key 会被忽略。Pod可以启动，但是无效的名字将会被记录在事件日志里(`InvalidVariableNames`). 
+日志消息会列出来每个被忽略的 Key ，比如：
 
    ```shell
    kubectl get events
@@ -630,10 +630,10 @@ When a ConfigMap already being consumed in a volume is updated, projected keys a
 {% include templates/task.md %}
 -->
 
-1. ConfigMaps存在于指定的[命名空间](/docs/user-guide/namespaces/).则这个ConfigMap只能被同一个命名空间里的Pod所引用。
+1. ConfigMaps 存在于指定的 [命名空间](/docs/user-guide/namespaces/).则这个 ConfigMap 只能被同一个命名空间里的 Pod 所引用。
 
-1. Kubelet不支持在API服务里找不到的Pod使用ConfigMap，这个包括了每个通过Kubectl或者间接通过复制控制器创建的Pod，
-不包括通过Kubelet 的 `--manifest-url`标志, `--config`标志, 或者Kubelet的REST API。（注意：这些并不是常规创建Pod的方法）
+1. Kubelet 不支持在API服务里找不到的Pod使用ConfigMap，这个包括了每个通过 Kubectl 或者间接通过复制控制器创建的 Pod，
+不包括通过Kubelet 的 `--manifest-url` 标志, `--config` 标志, 或者 Kubelet 的 REST API。（注意：这些并不是常规创建 Pod 的方法）
    
 {% endcapture %}
 
