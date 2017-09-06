@@ -196,7 +196,7 @@ TaintBasedEvictions=true|false (ALPHA - default=false)
 ```
       --address ip                                              kubelet 服务监听的IP地址（设置为 0.0.0.0 监听所有地址）（默认 0.0.0.0 ）
       --allow-privileged                                        如果为 true ，将允许容器请求特权模式
-      --anonymous-auth                                          允许匿名请求到 Kubelet 服务。未被另一个身份验证方法拒绝的请求被视为匿名请求。匿名请求包含系统的用户名: anonymous ，以及系统的组名: unauthenticated 。（默认 true ）
+      --anonymous-auth                                          允许匿名请求到 kubelet 服务。未被另一个身份验证方法拒绝的请求被视为匿名请求。匿名请求包含系统的用户名: anonymous ，以及系统的组名: unauthenticated 。（默认 true ）
       --authentication-token-webhook                            使用 TokenReview API 来确定不记名令牌的身份验证
       --authentication-token-webhook-cache-ttl duration         webhook 令牌身份验证器缓存响应时间。（默认2m0s）
       --authorization-mode string                               kubelet 服务的授权模式。有效的选项是 AlwaysAllow 或 Webhook 。Webhook 模式使用 SubjectAccessReview API 来确定授权。(默认“AlwaysAllow”)
