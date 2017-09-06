@@ -196,18 +196,18 @@ TaintBasedEvictions=true|false (ALPHA - default=false)
 ```
       --address ip                                              Kubelet 服务监听的IP地址（设置为 0.0.0.0 监听所有地址）（默认 0.0.0.0 ）
       --allow-privileged                                        如果为 true ，将允许容器请求特权模式
-      --anonymous-auth                                          允许匿名请求到 Kubelet 服务器。未被另一个身份验证方法拒绝的请求被视为匿名请求。匿名请求包含系统的用户名: anonymous ，以及系统的组名: unauthenticated 。（默认 true ）
+      --anonymous-auth                                          允许匿名请求到 Kubelet 服务。未被另一个身份验证方法拒绝的请求被视为匿名请求。匿名请求包含系统的用户名: anonymous ，以及系统的组名: unauthenticated 。（默认 true ）
       --authentication-token-webhook                            使用 TokenReview API 来确定不记名令牌的身份验证
       --authentication-token-webhook-cache-ttl duration         webhook 令牌身份验证器缓存响应时间。（默认2m0s）
-      --authorization-mode string                               Kubelet 服务器的授权模式。有效的选项是 AlwaysAllow 或 Webhook 。Webhook 模式使用 SubjectAccessReview API 来确定授权。(默认“AlwaysAllow”)
+      --authorization-mode string                               Kubelet 服务的授权模式。有效的选项是 AlwaysAllow 或 Webhook 。Webhook 模式使用 SubjectAccessReview API 来确定授权。(默认“AlwaysAllow”)
       --authorization-webhook-cache-authorized-ttl duration     来自 webhook 的已认证响应缓存时间（默认 5m0s）
       --authorization-webhook-cache-unauthorized-ttl duration   来自 webhook 的未认证响应缓存时间（默认 30s）
       --azure-container-registry-config string                  Azure 容器注册表配置信息路径
       --bootstrap-kubeconfig string                             用于获取 kubelet 客户端证书的 kubeconfig 文件路径，如果由 --kubeconfig 指定的文件不存在，将使用 bootstrap kubeconfig 从 API 服务器请求一个客户端证书，成功后，引用生成证书文件和密钥的 kubeconfig 将被写入 --kubeconfig 指定的文件，客户端证书和密钥将被保存在 --cert-dir 指定的目录。
-      --cadvisor-port int32                                     本地 cAdvisor 端点的端口（默认 4194）
+      --cadvisor-port int32                                     本地 cAdvisor 端口（默认 4194）
       --cert-dir string                                         TLS 证书所在目录。如果 --tls-cert-file 和 --tls-private-key-file 指定的文件存在，当前配置将被忽略。（默认“/var/run/kubernetes”）
       --cgroup-driver string                                    kubelet 用来操作主机上的 cgroups 驱动，可选值有：“cgroupfs”和“systemd”（默认“cgroupfs”）
-      --cgroup-root string                                      可选的根 cgroup 用于 pods ， 这是由容器运行时在最好的工作基础上处理的，默认：''，也就是使用容器运行时的默认值。
+      --cgroup-root string                                      用于 pods 的可选根 cgroup  ， 这是由容器运行时在最好的工作基础上处理的，默认：''，也就是使用容器运行时的默认值。
       --cgroups-per-qos                                         开启创建 QoS cgroup 层级，如果设置为 true 将创建顶级 QoS 和容器 cgroups 。（默认 true）
       --chaos-chance float                                      如果大于 0.0 ，引入随机客户端错误及延迟，用来测试。
       --client-ca-file string                                   如果设置，任何带有 client-ca-file 中签名的客户端证书的请求都将通过与客户端证书 CommonName 对应的标识进行身份认证。
@@ -245,7 +245,7 @@ TaintBasedEvictions=true|false (ALPHA - default=false)
       --experimental-fail-swap-on                               如果在节点上启用了 swap ， kubelet 将启动失败，这是一个维护遗留行为的临时选项，在 v1.6 启动失败是因为默认启用了 swap。
       --experimental-kernel-memcg-notification                  如果启用， kubelet 将集成内核 memcg 通知以确定是否达到内存清理阈值，而不是轮询。
       --experimental-mounter-path string                        [实验]二进制文件的挂载路径。保留空以使用默认。
-      --experimental-qos-reserved mapStringString               一个资源占比的集合（例如， memory=50%），描述如何在QoS级别保留pod资源请求，目前仅支持内存。[默认 none]
+      --experimental-qos-reserved mapStringString               一个资源占比的集合（例如 memory=50%），描述如何在QoS级别保留pod资源请求，目前仅支持内存。[默认 none]
       --feature-gates string                                    一组键值对，用来描述 alpha 或实验特性，选项有：
 Accelerators=true|false (ALPHA - default=false)
 AdvancedAuditing=true|false (ALPHA - default=false)
@@ -308,7 +308,7 @@ TaintBasedEvictions=true|false (ALPHA - default=false)
       --protect-kernel-defaults                                 kubelet 的默认内核调优行为。设置之后， kubelet 将在任何可调参数与默认值不同时抛出异常。
       --provider-id string                                      在机器数据库中标识节点的唯一标识符，也就是云提供商
       --read-only-port int32                                    没有认证/授权的只读 kubelet 服务端口。 (设置为 0 以禁用) (默认 10255)
-      --really-crash-for-testing                                设置为 true ，when panics occur crash. 用于测试。
+      --really-crash-for-testing                                设置为 true ，有可能出现应用崩溃。 用于测试。
       --register-node                                           用 apiserver 注册节点 (如果设置了 --api-servers 默认为 true ) (默认 true)
       --register-with-taints []api.Taint                        用给定的列表注册节点 (逗号分隔 "<key>=<value>:<effect>")。如果 register-node 为 false 将无操作
       --registry-burst int32                                    拉去镜像的最大并发数，允许同时拉取的镜像数，不能超过 registry-qps ，仅当 --registry-qps 大于 0 时使用。 (默认 10)
