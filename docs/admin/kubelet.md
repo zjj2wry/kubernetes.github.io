@@ -6,11 +6,11 @@ notitle: true
 
 
 
-<!--### Synopsis-->
-### 概要
+<!--
+### Synopsis
 
 
-<!--The kubelet is the primary "node agent" that runs on each
+The kubelet is the primary "node agent" that runs on each
 node. The kubelet works in terms of a PodSpec. A PodSpec is a YAML or JSON object
 that describes a pod. The kubelet takes a set of PodSpecs that are provided through
 various mechanisms (primarily through the apiserver) and ensures that the containers
@@ -28,7 +28,11 @@ HTTP endpoint: HTTP endpoint passed as a parameter on the command line. This end
 is checked every 20 seconds (also configurable with a flag).
 
 HTTP server: The kubelet can also listen for HTTP and respond to a simple API
-(underspec'd currently) to submit a new manifest.-->
+(underspec'd currently) to submit a new manifest.
+-->
+### 概要
+
+
 kubelet 是运行在每个节点上的主要的“节点代理”，它按照 PodSpec 中的描述工作。 PodSpec 是用来描述一个 pod 的 YAML 或者 JSON 对象。kubelet 通过各种机制（主要通过 apiserver ）获取一组 PodSpec 并保证在这些 PodSpec 中描述的容器健康运行。kubelet 不管理不是由 Kubernetes 创建的容器。
 
 除了来自 apiserver 的 PodSpec ，还有 3 种方式可以将容器清单提供给 Kubelet 。
@@ -42,7 +46,9 @@ HTTP服务：kubelet 还可以监听 HTTP 服务并响应一个简单的 API 来
 ```
 kubelet
 ```
-<!--### Options-->
+<!--
+### Options
+-->
 ### 选项
 <!--
 ```
