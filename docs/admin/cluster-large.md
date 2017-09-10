@@ -3,7 +3,7 @@ assignees:
 - davidopp
 - lavalamp
 <!-- title: Building Large Clusters -->
-title：搭建大型集群
+title: 搭建大型集群
 ---
 
 <!-- ## Support -->
