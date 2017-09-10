@@ -222,5 +222,3 @@ kubectl delete namespace quota-object-example
 
 
 {% include templates/task.md %}
-
-
