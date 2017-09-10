@@ -12,7 +12,7 @@ approvers:
 - jszczepkowski
 - justinsb
 - directxman12
-标题：Pod水平自动伸缩（Horizontal Pod Autoscaling）演练
+title: Pod水平自动伸缩（Horizontal Pod Autoscaling）演练
 ---
 
 <!--Horizontal Pod Autoscaling automatically scales the number of pods

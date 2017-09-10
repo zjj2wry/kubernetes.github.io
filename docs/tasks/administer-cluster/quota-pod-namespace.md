@@ -2,7 +2,7 @@
 title: Configure a Pod Quota for a Namespace
 ----->
 ---
-标题：为名字空间配置Pod配额
+title: 为名字空间配置Pod配额
 ---
 
 {% capture overview %}
@@ -164,5 +164,3 @@ kubectl delete namespace quota-pod-example
 
 
 {% include templates/task.md %}
-
-

@@ -12,7 +12,7 @@ approvers:
 - erictune
 - foxish
 - smarterclayton
-标题：强制删除StatefulSet中的Pod
+title: 强制删除StatefulSet中的Pod
 ---
 
 {% capture overview %}
