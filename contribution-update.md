@@ -1,6 +1,15 @@
 # K8SMeetup 中文翻译社区每周文章更新汇编
 
 
+### 第 7 周：2017-09-04 ~~ 2017-09-10 - 有效合并 3 篇
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/calico-network-policy](https://k8smeetup.github.io/docs/tasks/administer-cluster/calico-network-policy) by [Tony-CCIE](https://github.com/Tony-CCIE)
+
+[https://k8smeetup.github.io/docs/admin/kubelet](https://k8smeetup.github.io/docs/admin/kubelet) by [niuhp](https://github.com/niuhp)
+
+[https://k8smeetup.github.io/docs/admin/extensible-admission-controllers](https://k8smeetup.github.io/docs/admin/extensible-admission-controllers) by [wanghaoran1988](https://github.com/wanghaoran1988)
+
+
 ### 第 6 周：2017-08-28 ~~ 2017-09-03 - 有效合并 4 篇
 
 [https://k8smeetup.github.io/docs/tasks/tls/managing-tls-in-a-cluster](https://k8smeetup.github.io/docs/tasks/tls/managing-tls-in-a-cluster) by [rootsongjc](https://github.com/rootsongjc)

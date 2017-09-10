@@ -3,6 +3,39 @@
 本文档只包含新增更新，[更新参考](contribution-update.md)。
 
 
+### 第 7 周：2017-09-04 ~~ 2017-09-10 - 有效合并 15 篇
+
+[https://k8smeetup.github.io/docs/tools/index](https://k8smeetup.github.io/docs/tools/index) by [Tony-CCIE](https://github.com/Tony-CCIE)
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/out-of-resource](https://k8smeetup.github.io/docs/tasks/administer-cluster/out-of-resource) by [xiaosuiba](https://github.com/xiaosuiba)
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/dns-horizontal-autoscaling](https://k8smeetup.github.io/docs/tasks/administer-cluster/dns-horizontal-autoscaling) by [shirdrn](https://github.com/shirdrn)
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/quota-pod-namespace](https://k8smeetup.github.io/docs/tasks/administer-cluster/quota-pod-namespace) by [xingzhou](https://github.com/xingzhou)
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/quota-memory-cpu-namespace](https://k8smeetup.github.io/docs/tasks/administer-cluster/quota-memory-cpu-namespace) by [xingzhou](https://github.com/xingzhou)
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/quota-api-object](https://k8smeetup.github.io/docs/tasks/administer-cluster/quota-api-object) by [xingzhou](https://github.com/xingzhou)
+
+[https://k8smeetup.github.io/docs/tasks/debug-application-cluster/debug-init-containers](https://k8smeetup.github.io/docs/tasks/debug-application-cluster/debug-init-containers) by [jl2005](https://github.com/jl2005)
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/cpu-default-namespace](https://k8smeetup.github.io/docs/tasks/administer-cluster/cpu-default-namespace) by [jianzhangbjz](https://github.com/jianzhangbjz)
+
+[https://k8smeetup.github.io/docs/concepts/configuration/manage-compute-resources-container](https://k8smeetup.github.io/docs/concepts/configuration/manage-compute-resources-container) by [rootsongjc](https://github.com/rootsongjc)
+
+[https://k8smeetup.github.io/docs/tasks/configure-pod-container/configure-pod-configmap](https://k8smeetup.github.io/docs/tasks/configure-pod-container/configure-pod-configmap) by [NickSu86](https://github.com/NickSu86)
+
+[https://k8smeetup.github.io/docs/getting-started-guides/dcos](https://k8smeetup.github.io/docs/getting-started-guides/dcos) by [wyangsun](https://github.com/wyangsun)
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/highly-available-master](https://k8smeetup.github.io/docs/tasks/administer-cluster/highly-available-master) by [shirdrn](https://github.com/shirdrn)
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/upgrade-1-6](https://k8smeetup.github.io/docs/tasks/administer-cluster/upgrade-1-6) by [chentao1596](https://github.com/chentao1596)
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/static-pod](https://k8smeetup.github.io/docs/tasks/administer-cluster/static-pod) by [chentao1596](https://github.com/chentao1596)
+
+[https://k8smeetup.github.io/docs/tasks/administer-cluster/kubeadm-upgrade-1-7](https://k8smeetup.github.io/docs/tasks/administer-cluster/kubeadm-upgrade-1-7) by [xiaosuiba](https://github.com/xiaosuiba)
+
+
 ### 第 6 周：2017-08-28 ~~ 2017-09-03 - 有效合并 19 篇
 
 [https://k8smeetup.github.io/docs/tasks/debug-application-cluster/troubleshooting](https://k8smeetup.github.io/docs/tasks/debug-application-cluster/troubleshooting) by [jl2005](https://github.com/jl2005)
