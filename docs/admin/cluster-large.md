@@ -122,7 +122,7 @@ in your cluster. On other providers, you will need to configure it manually. For
 * 超过 500 节点: c4.8xlarge
 
 <!-- Note that these master node sizes are currently only set at cluster startup time, and are not adjusted if you later scale your cluster up or down (e.g. manually removing or adding nodes, or using a cluster autoscaler). -->
-注意这些主服务器节点规格只能在集群启动是设置，如果后续对于集群扩容或者缩容(比如，手工或者使用集群自动扩展器删除或增加节点)，规格是不会调整的。
+注意这些主服务器节点规格只能在集群启动时设置，如果后续对于集群扩容或者缩容(比如，手工或者使用集群自动扩展器删除或增加节点)，规格是不会调整的。
 
 <!-- ### Addon Resources -->
 ### Addon (插件)资源

@@ -17,7 +17,7 @@ title: Webhook 模式
 <!-- for users that wish to start clusters without `kubeadm`. It is also built to -->
 <!-- work, via RBAC policy, with the [Kubelet TLS -->
 <!-- Bootstrapping](/docs/admin/kubelet-tls-bootstrapping/) system. -->
-启动引导令牌是一种简单的 bearer token ，这种令牌是在新建集群或者在现有集群中添加新加新节点时使用的。
+启动引导令牌是一种简单的持有者令牌（Bearer Token），这种令牌是在新建集群或者在现有集群中添加新加新节点时使用的。
 它被设计成能支持 [`kubeadm`](/docs/admin/kubeadm/)，但是也可以被用在其他上下文中以便用户在
 不使用 `kubeadm` 的情况下启动cluster。它也被设计成可以通过 RBAC 策略，结合[Kubelet TLS
 Bootstrapping](/docs/admin/kubelet-tls-bootstrapping/) 系统进行工作。
@@ -31,7 +31,7 @@ Bootstrapping](/docs/admin/kubelet-tls-bootstrapping/) 系统进行工作。
 <!-- controller. -->
 启动引导令牌被定义成一个特定类型的secrets (`bootstrap.kubernetes.io/token`)，并存在于
 `kube-system` 命名空间中。然后这些 secrets 会被 API 服务器上的启动引导的认证器读取。
-过期的令牌与令牌清除控制器会被控制管理器一起清除。令牌也会被用于创建签名，签名用于
+过期的令牌与 TokenCleaner 会被控制管理器一起清除。令牌也会被用于创建签名，签名用于
 启动引导签名控制器在 "discovery" 进程中特定的 configmap 。
 
 
@@ -116,8 +116,8 @@ data:
 secret的类型必须是 `bootstrap.kubernetes.io/token` ，而名字必须是 `bootstrap-token-<token id>`。
 `description` 是人类可读的描述，而不应该是机器可读的信息。令牌 ID 和 Secret 是包含在数据字典中的。
 
-The `usage-bootstrap-*` members indicate what this secret is intended to be used
-for.  A value must be set to `true` to be enabled.
+<!-- The `usage-bootstrap-*` members indicate what this secret is intended to be used -->
+<!-- for.  A value must be set to `true` to be enabled. -->
  `usage-bootstrap-*` 成员代表了这个 secret 被用于什么。启用时，值必须设置为 `true`。
 
 <!-- `usage-bootstrap-authentication` indicates that the token can be used to -->
@@ -136,7 +136,7 @@ for.  A value must be set to `true` to be enabled.
 <!-- The `expiration` data member lists a time after which the token is no longer -->
 <!-- valid.  This is encoded as an absolute UTC time using RFC3339.  The TokenCleaner -->
 <!-- controller will delete expired tokens. -->
-`expiration` 数据成员列举了令牌在失效后的时间。这是通过 RFC3339 进行编码的 UTC 时间。
+`expiration` 数据成员列举了令牌在失效后的时间。这是遵循 RFC3339 进行编码的 UTC 时间。
 令牌清理控制器会删除过期的令牌。
 
 <!-- ## Token Management with `kubeadm` -->
@@ -147,7 +147,7 @@ for.  A value must be set to `true` to be enabled.
 <!-- created cluster (`/etc/kubernetes/admin.conf`).  You can specify an alternate -->
 <!-- kubeconfig file for credentials with the `--kubeconfig` to the following -->
 <!-- commands. -->
-你可以是用 `kubeadm` 工具管理正在运行集群的令牌。它会从 `kubeadm` 创建的集群(`/etc/kubernetes/admin.conf`)
+你可以使用 `kubeadm` 工具管理正在运行集群的令牌。它会从 `kubeadm` 创建的集群(`/etc/kubernetes/admin.conf`)
 自动抓取默认管理员密码。你可以对下面命令指定一个另外的 kubeconfig 文件抓取密码，参数使用 `--kubeconfig`。
 
 <!-- * `kubeadm token list` Lists the tokens along with when they expire and what the
