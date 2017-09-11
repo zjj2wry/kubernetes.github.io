@@ -11,7 +11,7 @@ title: Webhook Mode
 <!-- A WebHook is an HTTP callback: an HTTP POST that occurs when something happens; a simple event-notification via HTTP POST. A web application implementing WebHooks will POST a message to a URL when certain things happen. -->
 <!-- {% endcapture %} -->
 {% capture overview %}
-WebHook 是 HTTP 回调：某些条件下触发的 HTTP POST 请求；通过 HTTP POST 发送的简单事件通知。一个基于 web 应用实现的 WebHook 会在特定事件发生时把消息发送给特定的 URL 。
+WebHook 是一种 HTTP 回调：某些条件下触发的 HTTP POST 请求；通过 HTTP POST 发送的简单事件通知。一个基于 web 应用实现的 WebHook 会在特定事件发生时把消息发送给特定的 URL 。
 {% endcapture %}
 
 <!-- {% capture body %} -->
@@ -67,7 +67,7 @@ clusters:
   - name: name-of-remote-authz-service
     cluster:
       certificate-authority: /path/to/ca.pem      # 对远程服务进行身份认证的CA。
-      server: https://authz.example.com/authorize # 远程服务的查询 URL. 必须是 'https'。
+      server: https://authz.example.com/authorize # 远程服务的查询 URL. 必须使用 'https'。
 
 # users 代表 API 服务器的 webhook 配置.
 users:
@@ -76,7 +76,7 @@ users:
       client-certificate: /path/to/cert.pem # webhook plugin 使用的 cert。
       client-key: /path/to/key.pem          # cert 所对应的 key。
 
-# kubeconfig 文件必须有上下文. 需要提供一个给 API 服务器.
+# kubeconfig 文件必须有 context 。 需要提供一个给 API 服务器。
 current-context: webhook
 contexts:
 - context:
