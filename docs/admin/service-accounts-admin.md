@@ -105,11 +105,9 @@ It acts synchronously to modify pods as they are created or updated. When this p
 
  1. 如果 pod 没有配置 `ServiceAccount`，它会将 `ServiceAccount` 设置为 `default`。
  2. 确保被 pod 关联的 `ServiceAccount` 是存在的，否则就拒绝请求。
- <!-- 这里为什么没有3，直接跳到4了 -->
- （译者注，原文中漏了3)
- 4. 如果 pod 没有包含任何的 `ImagePullSecrets`，那么 `ServiceAccount` 的 `ImagePullSecrets` 就会被添加到 pod。
- 5. 它会把 `volume` 添加给 pod，该 pod 包含有一个用于 API 访问的令牌。
- 6. 它会把 `volumeSource` 添加到 pod 的每个容器，挂载到 `/var/run/secrets/kubernetes.io/serviceaccount`。
+ 3. 如果 pod 没有包含任何的 `ImagePullSecrets`，那么 `ServiceAccount` 的 `ImagePullSecrets` 就会被添加到 pod。
+ 4. 它会把 `volume` 添加给 pod，该 pod 包含有一个用于 API 访问的令牌。
+ 5. 它会把 `volumeSource` 添加到 pod 的每个容器，挂载到 `/var/run/secrets/kubernetes.io/serviceaccount`。
 
 <!--
 ### Token Controller
