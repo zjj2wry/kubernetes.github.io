@@ -1,10 +1,10 @@
 ---
 title: 同 Pod 内的容器使用共享卷通信
 redirect_from:
-- "/cn/docs/user-guide/pods/multi-container/"
-- "/cn/docs/user-guide/pods/multi-container.html"
-- "cn/docs/tasks/configure-pod-container/communicate-containers-same-pod/"
-- "cn/docs/tasks/configure-pod-container/communicate-containers-same-pod.html"
+- "/docs/user-guide/pods/multi-container/"
+- "/docs/user-guide/pods/multi-container.html"
+- "/docs/tasks/configure-pod-container/communicate-containers-same-pod/"
+- "/docs/tasks/configure-pod-container/communicate-containers-same-pod.html"
 ---
 <!--
 ---
@@ -181,13 +181,13 @@ Pod 能有多个容器的主要原因是为了支持辅助应用（helper applic
 
 <!-- * See -->
 <!-- [Configuring a Pod to Use a Volume for Storage](/docs/tasks/configure-pod-container/configure-volume-storage/). -->
-* 参见 [配置一个使用存储卷的 Pod](/cn/docs/tasks/configure-pod-container/configure-volume-storage/)。
+* 参见 [配置一个使用存储卷的 Pod](/docs/tasks/configure-pod-container/configure-volume-storage/)。
 
 <!-- * See [Volume](/docs/api-reference/v1.6/#volume-v1-core). -->
-* 参见 [卷](/cn/docs/api-reference/v1.6/#volume-v1-core)。
+* 参见 [卷](/docs/api-reference/v1.6/#volume-v1-core)。
 
 <!-- * See [Pod](/docs/api-reference/v1.6/#pod-v1-core). -->
-* 参见 [Pod](/cn/docs/api-reference/v1.6/#pod-v1-core).
+* 参见 [Pod](/docs/api-reference/v1.6/#pod-v1-core).
 
 {% endcapture %}
 
