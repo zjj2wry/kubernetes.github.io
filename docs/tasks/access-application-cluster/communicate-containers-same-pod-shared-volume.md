@@ -3,8 +3,8 @@ title: 同 Pod 内的容器使用共享卷通信
 redirect_from:
 - "/docs/user-guide/pods/multi-container/"
 - "/docs/user-guide/pods/multi-container.html"
-- "docs/tasks/configure-pod-container/communicate-containers-same-pod/"
-- "docs/tasks/configure-pod-container/communicate-containers-same-pod.html"
+- "/docs/tasks/configure-pod-container/communicate-containers-same-pod/"
+- "/docs/tasks/configure-pod-container/communicate-containers-same-pod.html"
 ---
 <!--
 ---
@@ -21,7 +21,7 @@ redirect_from:
 
 <!-- This page shows how to use a Volume to communicate between two Containers running -->
 <!-- in the same Pod. -->
-本文旨在说明如何使用一个卷（Volume）让一个 Pod 内的两个容器进行通信
+本文旨在说明如何让一个 Pod 内的两个容器使用一个卷（Volume）进行通信。
 
 {% endcapture %}
 
@@ -36,7 +36,7 @@ redirect_from:
 {% capture steps %}
 
 <!-- ##  Creating a Pod that runs two Containers -->
-## 创建一个两个容器的 Pod
+## 创建一个包含两个容器的 Pod
 
 <!-- In this exercise, you create a Pod that runs two Containers. The two containers -->
 <!-- share a Volume that they can use to communicate. Here is the configuration file -->
@@ -55,7 +55,7 @@ Pod 的配置文件如下：
 <!-- The second container is based on the debian image, and has a mount path of -->
 <!-- `/pod-data`. The second container runs the following command and then terminates. -->
 配置文件中的第一个容器运行了一个 nginx 服务器。共享卷的挂载路径是 `/usr/share/nginx/html`。
-第二个容器是基于 debian 镜像的，有一个挂载路径是 `/pod-data`。第二个容器运行了下面的命令然后终止。
+第二个容器是基于 debian 镜像的，有一个 `/pod-data` 的挂载路径。第二个容器运行了下面的命令然后终止。
 
     echo Hello from the debian container > /pod-data/index.html
 
@@ -135,7 +135,7 @@ Pod 的配置文件如下：
     root@two-containers:/# curl localhost
 
 <!-- The output shows that nginx serves a web page written by the debian container: -->
-输出显示了 nginx 提供了 debian 容器写的页面：
+输出表示 nginx 提供了 debian 容器写的页面：
 
     Hello from the debian container
 
@@ -154,9 +154,10 @@ Pod 的配置文件如下：
 <!-- Typically this is done through a shared filesystem, as shown in this exercise, -->
 <!-- or through the loopback network interface, localhost. An example of this pattern is a -->
 <!-- web server along with a helper program that polls a Git repository for new updates. -->
-Pod 能有多个容器的主要原因是为了支持协助主应用的辅助应用。辅助应用的典型例子是数据抽取，数据推送和代理。
-辅助应用和主应用经常需要相互通信。通常这是通过共享文件系统完成的，就如这个练习所示，或者通过回环网络接口
-localhost 完成。网络接口的例子是 web 服务器带有一个协助程序用于拉取 Git 仓库的更新。
+Pod 能有多个容器的主要原因是为了支持辅助应用（helper applications），以协助主应用（primary application）。
+辅助应用的典型例子是数据抽取，数据推送和代理。辅助应用和主应用经常需要相互通信。
+就如这个练习所示，通信通常是通过共享文件系统完成的，或者，也通过回环网络接口 localhost 完成。
+举个网络接口的例子，web 服务器带有一个协助程序用于拉取 Git 仓库的更新。
 
 <!-- The Volume in this exercise provides a way for Containers to communicate during -->
 <!-- the life of the Pod. If the Pod is deleted and recreated, any data stored in -->
@@ -176,11 +177,11 @@ localhost 完成。网络接口的例子是 web 服务器带有一个协助程�
 
 <!-- * Learn about -->
 <!-- [composite containers for modular architecture](http://www.slideshare.net/Docker/slideshare-burns). -->
-* 学习[模块化架构的混合容器](http://www.slideshare.net/Docker/slideshare-burns)。
+* 学习 [模块化架构的混合容器](http://www.slideshare.net/Docker/slideshare-burns)。
 
 <!-- * See -->
 <!-- [Configuring a Pod to Use a Volume for Storage](/docs/tasks/configure-pod-container/configure-volume-storage/). -->
-* 参见[配置一个使用存储卷的 Pod](/docs/tasks/configure-pod-container/configure-volume-storage/)。
+* 参见 [配置一个使用存储卷的 Pod](/docs/tasks/configure-pod-container/configure-volume-storage/)。
 
 <!-- * See [Volume](/docs/api-reference/v1.6/#volume-v1-core). -->
 * 参见 [卷](/docs/api-reference/v1.6/#volume-v1-core)。
