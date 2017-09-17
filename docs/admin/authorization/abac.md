@@ -1,6 +1,6 @@
 <!--
 ---
-assignees:
+approvers:
 - erictune
 - lavalamp
 - deads2k
@@ -9,7 +9,7 @@ title: ABAC Mode
 ---
 -->
 ---
-assignees:
+approvers:
 - erictune
 - lavalamp
 - deads2k
@@ -66,7 +66,7 @@ properties:-->
         - Wildcard:
           - `*` matches all non-resource requests.
           - `/foo/*` matches all subpaths of `/foo/`.
-    - `readonly`, type boolean, when true, means that the policy only applies to get, list, and watch operations.
+    - `readonly`, type boolean, when true, means that the Resource-matching policy only applies to get, list, and watch operations.
 -->
     - 版本控制属性:
       - `apiVersion`，字符串类型: 有效值为"abac.authorization.kubernetes.io/v1beta1"，允许版本控制和转换策略格式。
@@ -91,7 +91,7 @@ properties:-->
         - 通配符:
           - `*` 匹配所有非资源请求。
           - `/foo/*` 匹配`/foo/`的所有子路径。
-    - `readonly`，键入 boolean，如果为 true，则表示该策略仅适用于 get，list 和 watch 操作。
+    - `readonly`，键入 boolean，如果为 true，则表示该策略仅适用于 get，list 和 watch 匹配资源的操作。
 <!--
 **NOTES:** An unset property is the same as a property set to the zero value for its type
 (e.g. empty string, 0, false). However, unset should be preferred for
