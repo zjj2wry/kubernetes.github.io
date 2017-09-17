@@ -12,8 +12,8 @@ title: Connect a Front End to a Back End Using a Service
 <!-- This task shows how to create a frontend and a backend -->
 <!-- microservice. The backend microservice is a hello greeter. The -->
 <!-- frontend and backend are connected using a Kubernetes Service object. -->
-这项任务会描述如何创建一个前端和一个后端的微服务。后端微服务是一个 hello 欢迎程序。
-前端和后端的连接是通过 Kubernetes Service 对象完成的。
+本任务会描述如何创建前端微服务和后端微服务。后端微服务是一个 hello 欢迎程序。
+前端和后端的连接是通过 Kubernetes 服务对象（Service object）完成的。
 
 {% endcapture %}
 
@@ -24,9 +24,9 @@ title: Connect a Front End to a Back End Using a Service
 <!-- * Route traffic to the backend using a frontend. -->
 <!-- * Use a Service object to connect the frontend application to the
        backend application. -->
-* 使用 Deployment 对象创建并运行一个微服务
+* 使用部署对象（Deployment object）创建并运行一个微服务
 * 从后端将流量路由到前端
-* 使用 Service 对象把前端应用连接到后端应用
+* 使用服务对象把前端应用连接到后端应用
 
 {% endcapture %}
 
@@ -42,9 +42,9 @@ title: Connect a Front End to a Back End Using a Service
   support this, you can use a Service of type
   [NodePort](/docs/user-guide/services/#type-nodeport) instead.
 -->
-* 本项任务使用[外部负载均衡服务](/docs/tasks/access-application-cluster/create-external-load-balancer/)，
-  所以需要对应的可支持此功能的环境。如果你的环境不能支持，你可以使用[NodePort](/docs/user-guide/services/#type-nodeport)
-  的类型 Service 来代替。
+* 本任务使用 [外部负载均衡服务](/docs/tasks/access-application-cluster/create-external-load-balancer/)，
+  所以需要对应的可支持此功能的环境。如果你的环境不能支持，你可以使用
+  [NodePort](/docs/user-guide/services/#type-nodeport) 类型的服务代替。
 
 {% endcapture %}
 
@@ -52,7 +52,7 @@ title: Connect a Front End to a Back End Using a Service
 {% capture lessoncontent %}
 
 <!-- ### Creating the backend using a Deployment -->
-### 使用 Deployment 创建后端
+### 使用部署对象（Deployment）创建后端
 
 <!-- The backend is a simple hello greeter microservice. Here is the configuration -->
 <!-- file for the backend Deployment: -->
@@ -96,14 +96,14 @@ Events:
 ```
 
 <!-- ### Creating the backend Service object -->
-### 创建后端 Service 对象
+### 创建后端服务对象（Service object）
 
 <!-- The key to connecting a frontend to a backend is the backend -->
 <!-- Service. A Service creates a persistent IP address and DNS name entry -->
 <!-- so that the backend microservice can always be reached. A Service uses -->
 <!-- selector labels to find the Pods that it routes traffic to. -->
 前端连接到后端的关键是 Service。Service 创建一个固定 IP 和 DNS 解析名入口，
-使得后端微服务可达。Service 使用 selector 标签来寻找目的地 Pods。
+使得后端微服务可达。Service 使用 selector 标签来寻找目标 Pod。
 
 <!-- First, explore the Service configuration file: -->
 首先，浏览 Service 的配置文件：
@@ -112,7 +112,7 @@ Events:
 
 <!-- In the configuration file, you can see that the Service routes traffic to Pods -->
 <!-- that have the labels `app: hello` and `tier: backend`. -->
-配置文件中，你可以看到 Service 将流量路由到包含 `app: hello` 和 `tier: backend` 标签的 Pods。
+配置文件中，你可以看到 Service 将流量路由到包含 `app: hello` 和 `tier: backend` 标签的 Pod。
 
 <!-- Create the `hello` Service: -->
 创建 `hello` Service：
@@ -158,7 +158,7 @@ kubectl create -f https://k8s.io/docs/tasks/access-application-cluster/frontend.
 ```
 
 <!-- The output verifies that both resources were created: -->
-输出确认两个资源都已经被创建：
+通过输出确认两个资源都已经被创建：
 
 ```
 deployment "frontend" created
@@ -170,7 +170,7 @@ service "frontend" created
 <!-- A better way to do this would be to use a -->
 <!-- [ConfigMap](/docs/tasks/configure-pod-container/configmap/), so -->
 <!-- that you can change the configuration more easily. -->
-**注意**：这个 nginx 配置文件是被打包在[容器镜像](/docs/tasks/access-application-cluster/frontend/Dockerfile)里的。
+**注意**：这个 nginx 配置文件是被打包在 [容器镜像](/docs/tasks/access-application-cluster/frontend/Dockerfile) 里的。
 更好的方法是使用 [ConfigMap](/docs/tasks/configure-pod-container/configmap/)，这样的话你可以更轻易地更改配置。
 
 <!-- ### Interact with the frontend Service -->
@@ -186,7 +186,7 @@ kubectl get service frontend
 
 <!-- The external IP field may take some time to populate.  If this is the -->
 <!-- case, the external IP is listed as `<pending>`. -->
-外部 IP 的字段的生成可能需要一些时间。如果是这种情况，外部 IP 会显示为 `<pending>`。
+外部 IP 字段的生成可能需要一些时间。如果是这种情况，外部 IP 会显示为 `<pending>`。
 
 ```
 NAME       CLUSTER-IP      EXTERNAL-IP   PORT(S)  AGE
