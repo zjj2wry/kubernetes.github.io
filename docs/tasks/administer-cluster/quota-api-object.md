@@ -2,7 +2,7 @@
 title: Configure Quotas for API Objects
 ----->
 ---
-标题：配置API对象（API Object）的配额（Quota）
+title: 配置API对象（API Object）的配额（Quota）
 ---
 
 
